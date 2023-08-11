@@ -11,7 +11,7 @@ func CommaSeparated(fileName string) {
 		os.Exit(1)
 	}
 
-	dataArray := strings.Split(strings.ReplaceAll(string(data), "\r\n", "\n"), "\n")
+	dataArray := strings.Split(strings.TrimSpace(strings.ReplaceAll(string(data), "\r\n", "\n")), "\n")
 
 	var res string
 	for _, datarow := range dataArray {
