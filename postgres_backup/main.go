@@ -4,10 +4,12 @@ import (
 	pg "github.com/habx/pg-commands"
 	"os"
 	"fmt"
+	"time"
 )
 
 func main() {
-	fmt.Println("T")
+	currentTime := time.Now()
+
 	postgresConfig := pg.Postgres {
 		Host: "192.168.178.6",
 		Port: 5432,
@@ -29,7 +31,8 @@ func main() {
 		os.Exit(2)
 	}
 
-	dump.SetFileName("postgres_backup_01_01_2023_19_54")
+	dumpFileName := currentTime.Format("2006-01-02") + "_" + currentTIme.Hour() + "_" + currentTime.Minute() + "_" + currentTime.Second()
+	dump.SetFileName(dumpFileName)
 	dump.SetPath("./")
 	//execute dump
 	options := pg.ExecOptions{
