@@ -1,5 +1,4 @@
-# Hilfsprogramme
-Programs I use to automate certain things
+Little helper programs I use for work
 
 # ListFormatting
 Sometimes I need a list of values separated by commata.
