@@ -3,3 +3,6 @@ listFormatting/output.txt
 listFormatting/data.txt
 
 postgres_backup/*.exe
+postgres_backup/.env
+postgres_backup/.env.production
+postgres_backup/.env.development
