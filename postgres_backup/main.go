@@ -17,7 +17,6 @@ func main() {
 		os.Exit(1)
 	}
 
-
 	postgresConfig := pg.Postgres {
 		Host: os.Getenv("POSTGRES_HOST"),
 		Port: os.Getenv("POSTGRES_PORT"),
