@@ -26,7 +26,7 @@ func main() {
 	for i := range dataArray {
 
 
-		res += "UPDATE item SET img_nr = '" + strings.TrimSpace(strings.ReplaceAll(strings.ReplaceAll(string(data2Array[i]), "\r\n", "\n"), "\n", "")) + "' WHERE name = '" + strings.TrimSpace(strings.ReplaceAll(strings.ReplaceAll(string(dataArray[i]), "\r\n", "\n"), "\n", "")) + "'; \n"
+		res += "UPDATE item SET mdm_nr = '" + strings.TrimSpace(strings.ReplaceAll(strings.ReplaceAll(string(data2Array[i]), "\r\n", "\n"), "\n", "")) + "' WHERE name = '" + strings.TrimSpace(strings.ReplaceAll(strings.ReplaceAll(string(dataArray[i]), "\r\n", "\n"), "\n", "")) + "'; \n"
 	}
 	// res = res[0:len(res)-2]
 

@@ -15,7 +15,7 @@ func CommaSeparated(fileName string) {
 
 	var res string
 	for _, datarow := range dataArray {
-		res += "'" + datarow + "'" + ", "
+		res += "'" + datarow + "', "
 	}
 	res = res[0:len(res)-2]
 
