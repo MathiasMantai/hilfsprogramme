@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"time"
 	"github.com/joho/godotenv"
+	"strconv"
 )
 
 func main() {
@@ -17,9 +18,15 @@ func main() {
 		os.Exit(1)
 	}
 
+	port, convertToIntError := strconv.Atoi(os.Getenv("POSTGRES_PORT"))
+	if convertToIntError != nil {
+		fmt.Println("Invalid POSTGRES_PORT environment variable")
+        os.Exit(2)
+	}
+
 	postgresConfig := pg.Postgres {
 		Host: os.Getenv("POSTGRES_HOST"),
-		Port: os.Getenv("POSTGRES_PORT"),
+		Port: port,
 		DB: os.Getenv("POSTGRES_DATABASE"),
 		Username: os.Getenv("POSTGRES_USER"),
 		Password: os.Getenv("POSTGRES_PASSWORD"),
@@ -38,7 +45,7 @@ func main() {
 		os.Exit(3)
 	}
 
-	dumpFileName := currentTime.Format("2006-01-02") + "_" + currentTIme.Hour() + "_" + currentTime.Minute() + "_" + currentTime.Second()
+	dumpFileName := currentTime.Format("2006-01-02") + "_" + strconv.Itoa(currentTime.Hour()) + "_" + strconv.Itoa(currentTime.Minute()) + "_" + strconv.Itoa(currentTime.Second())
 	dump.SetFileName(dumpFileName)
 	dump.SetPath("./")
 	//execute dump
